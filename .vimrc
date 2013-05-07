@@ -1,7 +1,8 @@
 "Essential
 set nocompatible 
 filetype plugin indent on
-
+set background=dark
+set scrolloff=2
 set listchars=extends:>,precedes:<,eol:$,trail:.,tab:>-
 
 "Indentation
@@ -11,6 +12,7 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
+set smarttab
 
 "Search
 set incsearch
@@ -34,6 +36,7 @@ syntax on
 set showmatch
 set matchtime=3
 noremap % v%
+set matchpairs+=<:>
 
 "encoding
 set encoding=utf8
@@ -46,7 +49,9 @@ nmap <silent> <leader>l :set list!<CR>
 nmap <silent> <leader>n :silent :nohlsearch<CR>
 nmap <silent> <leader>s :set spell!<CR>
 nmap <silent> <leader>c :set number!<CR>
-nmap <silent> <leader>o yiW :vsp <C-r>0<CR>
+nmap <silent> <leader>oe yiW :e <C-r>0<CR>
+nmap <silent> <leader>os yiW :sp <C-r>0<CR>
+nmap <silent> <leader>ov yiW :vsp <C-r>0<CR>
 nmap <silent> <leader>w :set diffopt+=iwhite<CR>
 nmap <silent> <leader>W :set diffopt-=iwhite<CR>
 cnoremap <C-p> <Up>
@@ -64,6 +69,10 @@ function! s:VSetSearch()
 endfunction
 
 "Fixing the & command
-
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
+
+
+"Hiding hlsearch for * and #
+nnoremap <silent> * *:nohlsearch<CR>
+nnoremap <silent> # #:nohlsearch<CR>
