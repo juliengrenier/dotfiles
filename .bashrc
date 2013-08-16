@@ -5,6 +5,8 @@ shopt -s histreedit; #Allow edition of failed command
 shopt -s histverify; #verify substitution before executing
 
 
+alias rm='rm -i'
+
 if [ -f $HOME/.bashrc_custom ]; then
   . $HOME/.bashrc_custom
 fi
