@@ -76,3 +76,10 @@ xnoremap & :&&<CR>
 "Hiding hlsearch for * and #
 nnoremap <silent> * *:nohlsearch<CR>
 nnoremap <silent> # #:nohlsearch<CR>
+
+"Python
+autocmd BufRead *.py nmap <buffer> <silent> <leader>/ I#<ESC>j
+autocmd BufRead *.py xnoremap <buffer> <silent> <leader>pdb i__import__('pdb').set_trace()<ESC>==j
+autocmd BufRead *.py nmap <buffer> <F5> :!python %<CR>
+autocmd BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
+
