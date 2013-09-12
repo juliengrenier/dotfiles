@@ -123,18 +123,21 @@ function promptcmd () {
     if [ ${SSH_FLAG} -eq 1 ]; then 
        PS1="${PS1}\[${COLOR_CYAN}\]\h "
     elif [[ -n ${SESS_SRC} ]]; then 
-        if [ "${SESS_SRC}" == "(:0.0)" ]; then 
         PS1="${PS1}\[${COLOR_GREEN}\]\h "
-        else 
-            local parent_process=`cat /proc/${PPID}/cmdline`
-            if [[ "$parent_process" == "in.rlogind*" ]]; then
-                PS1="${PS1}\[${COLOR_BROWN}\]\h "
-            elif [[ "$parent_process" == "in.telnetd*" ]]; then 
-                PS1="${PS1}\[${COLOR_YELLOW}\]\h "
-            else
-                PS1="${PS1}\[${COLOR_LIGHTRED}\]\h "
-            fi
-        fi
+        #if [ "${SESS_SRC}" == "(:0.0)" ]; then 
+        #PS1="${PS1}\[${COLOR_GREEN}\]\h "
+        #else 
+        #    PS1="${PS1}\[${COLOR_GREEN}\]\h "
+
+         #   local parent_process=`cat /proc/${PPID}/cmdline`
+         #   if [[ "$parent_process" == "in.rlogind*" ]]; then
+         #       PS1="${PS1}\[${COLOR_BROWN}\]\h "
+         #   elif [[ "$parent_process" == "in.telnetd*" ]]; then 
+         #       PS1="${PS1}\[${COLOR_YELLOW}\]\h "
+         #   else
+         #       PS1="${PS1}\[${COLOR_LIGHTRED}\]\h "
+         #   fi
+        #fi
     elif [[ "${SESS_SRC}" == "" ]]; then
         PS1="${PS1}\[${COLOR_GREEN}\]\h "
     else                                 
@@ -239,8 +242,8 @@ function prompt_workingdir () {
 
 function load_prompt () {
     # Get PIDs
-    local parent_process=$(cat /proc/$PPID/cmdline | cut -d \. -f 1)
-    local my_process=$(cat /proc/$$/cmdline | cut -d \. -f 1)
+    #local parent_process=$(cat /proc/$PPID/cmdline | cut -d \. -f 1)
+    #local my_process=$(cat /proc/$$/cmdline | cut -d \. -f 1)
 #
 #    if  [[ $parent_process == script* ]]; then
 #        PROMPT_COMMAND=""
