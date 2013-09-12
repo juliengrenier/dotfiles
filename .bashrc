@@ -10,3 +10,7 @@ alias rm='rm -i'
 if [ -f $HOME/.bashrc_custom ]; then
   . $HOME/.bashrc_custom
 fi
+
+if [ -f $HOME/.bashrc-prompt ]; then
+  . $HOME/.bashrc-prompt
+fi

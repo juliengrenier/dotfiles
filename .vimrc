@@ -19,6 +19,7 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
+set infercase
 
 colorscheme torte
 set showcmd
@@ -48,12 +49,13 @@ nmap <silent> <leader>a 1GVG
 nmap <silent> <leader>l :set list!<CR>
 nmap <silent> <leader>n :silent :nohlsearch<CR>
 nmap <silent> <leader>s :set spell!<CR>
-nmap <silent> <leader>c :set number!<CR>
+nmap <silent> <leader>h :set number!<CR>
 nmap <silent> <leader>oe yiW :e <C-r>0<CR>
 nmap <silent> <leader>os yiW :sp <C-r>0<CR>
 nmap <silent> <leader>ov yiW :vsp <C-r>0<CR>
 nmap <silent> <leader>w :set diffopt+=iwhite<CR>
 nmap <silent> <leader>W :set diffopt-=iwhite<CR>
+nmap <silent> <leader>K <ESC>i<CR><ESC>
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 
