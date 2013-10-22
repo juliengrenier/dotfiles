@@ -6,21 +6,22 @@ if !filereadable(vundle_readme)
   echo "Installing Vundle.."
   echo ""
   silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+  silent !git clone git@github.com:gmarik/vundle.git ~/.vim/bundle/vundle
   let iCanHazVundle=0
 endif
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+let g:vundle_default_git_proto = 'git'
 Bundle 'gmarik/vundle'
-Bundle 'Syntastic'
-Bundle 'https://github.com/tpope/vim-fugitive'
-Bundle 'https://github.com/rizzatti/funcoo.vim.git'
-Bundle 'https://github.com/rizzatti/dash.vim'
-Bundle 'https://github.com/majutsushi/tagbar'
-"Bundle 'git://repo.or.cz/vcscommand'
-Bundle 'https://github.com/bling/vim-airline'
-Bundle 'https://github.com/tpope/vim-markdown.git'
-Bundle 'https://github.com/mhinz/vim-signify'
+Bundle 'git@github.com:vim-scripts/Syntastic.git'
+Bundle 'git@github.com:tpope/vim-fugitive.git'
+Bundle 'git@github.com:rizzatti/funcoo.vim.git'
+Bundle 'git@github.com:rizzatti/dash.vim'
+Bundle 'git@github.com:majutsushi/tagbar'
+Bundle 'git@github.com:vim-scripts/vcscommand.vim.git'
+Bundle 'git@github.com:bling/vim-airline'
+Bundle 'git@github.com:tpope/vim-markdown.git'
+Bundle 'git@github.com:mhinz/vim-signify'
 if iCanHazVundle == 0
   echo "Installing Bundles, please ignore key map error messages "
   echo ""
@@ -33,7 +34,7 @@ set background=dark
 set scrolloff=2
 set listchars=extends:>,precedes:<,eol:$,trail:.,tab:>-
 
-let g:airline_powerline_fonts = 1
+"let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:syntastic_python_checkers=['pyflakes', 'pep8'] 
 
@@ -118,4 +119,5 @@ autocmd BufRead *.py nmap <buffer> <silent> <leader>/ I#<ESC>j
 autocmd BufRead *.py xnoremap <buffer> <silent> <leader>pdb i__import__('pdb').set_trace()<ESC>==j
 autocmd BufRead *.py nmap <buffer> <F5> :!python %<CR>
 autocmd BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
+autocmd BufRead *.*annotatedstring setlocal noautoindent noexpandtab
 
