@@ -6,6 +6,7 @@ shopt -s histverify; #verify substitution before executing
 
 
 alias rm='rm -i'
+alias ll='ls -larth --color=auto'
 
 if [ -f $HOME/.bashrc_custom ]; then
   . $HOME/.bashrc_custom
