@@ -1,4 +1,4 @@
-"Essential
+" Essential
 " Setting up Vundle - the vim plugin bundler
 let iCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
@@ -33,6 +33,8 @@ filetype plugin indent on
 set background=dark
 set scrolloff=2
 set listchars=extends:>,precedes:<,eol:$,trail:.,tab:>-
+" Allow hidden buffers
+set hidden
 
 "let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -78,6 +80,10 @@ set encoding=utf8
 "key mapping
 let mapleader = ","
 noremap \ ,
+nmap <leader>ew :e <C-R>=expand("%:p:h") . "/"<CR>
+nmap <leader>es :sp <C-R>=expand("%:p:h") . "/"<CR>
+nmap <leader>ev :vsp <C-R>=expand("%:p:h") . "/"<CR>
+nmap <leader>et :tabnew <C-R>=expand("%:p:h") . "/"<CR>
 nmap <silent> <leader>a 1GVG
 nmap <silent> <leader>l :set list!<CR>
 nmap <silent> <leader>n :silent :nohlsearch<CR>
@@ -94,6 +100,10 @@ nmap <silent> <leader>W :set diffopt-=iwhite<CR>
 nmap <silent> <leader>K <ESC>i<CR><ESC>
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
+map <C-h> <C-w> h
+map <C-j> <C-w> j
+map <C-k> <C-w> k
+map <C-l> <C-w> l
 
 "Visual star
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
