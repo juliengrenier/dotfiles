@@ -82,7 +82,8 @@ nmap <silent> <leader>a 1GVG
 nmap <silent> <leader>l :set list!<CR>
 nmap <silent> <leader>n :silent :nohlsearch<CR>
 nmap <silent> <leader>s :set spell!<CR>
-nmap <silent> <leader>p :bp<CR>
+nmap <silent> <leader>< :bp<CR>
+nmap <silent> <leader>> :bn<CR>
 nmap <silent> <leader>tt :TagbarToggle<CR>
 nmap <silent> <leader>h :set number!<CR>
 nmap <silent> <leader>oe yiW :e <C-r>0<CR>
