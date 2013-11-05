@@ -1,0 +1,47 @@
+[user]
+	name = Julien Grenier
+
+[core]
+  repositoryformatverion = 0
+  filemonde = true
+  bare = false
+  logallrefupdates = true
+  preloadindex = true
+
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+
+[color "branch"]
+  current = red reverse
+  local = blue
+  remote = green
+
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+
+[mergetool "fugitive"]
+	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+[merge]
+	tool = fugitive
+[push]
+	default = simple
+[diff]
+  memonicprefix = true
+
+[alias]
+  ammend = commit --ammend
+	st = status -s
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+  ll = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+	filelog = log -u
+
