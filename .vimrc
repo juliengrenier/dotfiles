@@ -94,10 +94,12 @@ nmap <silent> <leader>tt :TagbarToggle<CR>
 nmap <silent> <leader>h :set number!<CR>
 nmap <silent> <leader>oe yiW :e <C-r>0<CR>
 nmap <silent> <leader>os yiW :sp <C-r>0<CR>
+nmap <silent> <leader>v :tabedit $MYVIMRC<CR>
 nmap <silent> <leader>ov yiW :vsp <C-r>0<CR>
 nmap <silent> <leader>w :set diffopt+=iwhite<CR>
 nmap <silent> <leader>W :set diffopt-=iwhite<CR>
 nmap <silent> <leader>K <ESC>i<CR><ESC>
+nmap <silent> gv `[V`]
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 map <C-h> <C-w> h
@@ -131,4 +133,4 @@ autocmd FileType python xnoremap <buffer> <silent> <leader>pdb i__import__('pdb'
 autocmd Filetype python nmap <buffer> <F5> :!python %<CR>
 autocmd Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4
 autocmd BufNewFile,BufRead *.*annotatedstring setlocal noautoindent noexpandtab
-
+autocmd BufWritePost .vimrc source $MYVIMRC
