@@ -22,6 +22,9 @@ Bundle 'git@github.com:vim-scripts/vcscommand.vim.git'
 Bundle 'git@github.com:bling/vim-airline'
 Bundle 'git@github.com:tpope/vim-markdown.git'
 Bundle 'git@github.com:mhinz/vim-signify'
+Bundle 'git@github.com:tpope/vim-surround'
+Bundle 'git@github.com:sjl/gundo.vim.git'
+
 if iCanHazVundle == 0
   echo "Installing Bundles, please ignore key map error messages "
   echo ""
@@ -100,6 +103,8 @@ nmap <silent> <leader>w :set diffopt+=iwhite<CR>
 nmap <silent> <leader>W :set diffopt-=iwhite<CR>
 nmap <silent> <leader>K <ESC>i<CR><ESC>
 nmap <silent> gv `[V`]
+nnoremap <Space> za
+vnoremap <Space> za
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 map <C-h> <C-w> h
