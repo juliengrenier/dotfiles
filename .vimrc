@@ -24,6 +24,7 @@ Bundle 'git@github.com:tpope/vim-markdown.git'
 Bundle 'git@github.com:mhinz/vim-signify'
 Bundle 'git@github.com:tpope/vim-surround'
 Bundle 'git@github.com:sjl/gundo.vim.git'
+Bundle 'git@github.com:elzr/vim-json.git'
 
 if iCanHazVundle == 0
   echo "Installing Bundles, please ignore key map error messages "
@@ -139,3 +140,4 @@ autocmd Filetype python nmap <buffer> <F5> :!python %<CR>
 autocmd Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4
 autocmd BufNewFile,BufRead *.*annotatedstring setlocal noautoindent noexpandtab
 autocmd BufWritePost .vimrc source $MYVIMRC
+autocmd FileType json set foldmethod=syntax 
