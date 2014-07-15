@@ -1,4 +1,3 @@
-" Essential
 " Setting up Vundle - the vim plugin bundler
 let iCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
@@ -11,20 +10,21 @@ if !filereadable(vundle_readme)
 endif
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-let g:vundle_default_git_proto = 'git'
+"let g:vundle_default_git_proto = 'git'
 Bundle 'gmarik/vundle'
-Bundle 'git@github.com:vim-scripts/Syntastic.git'
-Bundle 'git@github.com:tpope/vim-fugitive.git'
-Bundle 'git@github.com:rizzatti/funcoo.vim.git'
-Bundle 'git@github.com:rizzatti/dash.vim'
-Bundle 'git@github.com:majutsushi/tagbar'
-Bundle 'git@github.com:vim-scripts/vcscommand.vim.git'
-Bundle 'git@github.com:bling/vim-airline'
-Bundle 'git@github.com:tpope/vim-markdown.git'
-Bundle 'git@github.com:mhinz/vim-signify'
-Bundle 'git@github.com:tpope/vim-surround'
-Bundle 'git@github.com:sjl/gundo.vim.git'
-Bundle 'git@github.com:elzr/vim-json.git'
+Bundle 'vim-scripts/Syntastic'
+Bundle 'tpope/vim-fugitive'
+Bundle 'rizzatti/funcoo.vim'
+Bundle 'rizzatti/dash.vim'
+Bundle 'majutsushi/tagbar'
+Bundle 'vim-scripts/vcscommand.vim'
+Bundle 'bling/vim-airline'
+Bundle 'tpope/vim-markdown'
+Bundle 'mhinz/vim-signify'
+Bundle 'tpope/vim-surround'
+Bundle 'sjl/gundo.vim'
+Bundle 'elzr/vim-json'
+Bundle 'tpope/vim-unimpaired'
 
 if iCanHazVundle == 0
   echo "Installing Bundles, please ignore key map error messages "
@@ -32,15 +32,17 @@ if iCanHazVundle == 0
   :BundleInstall
 endif
 
+" Essential
 set nocompatible
 filetype plugin indent on
 set background=dark
 set scrolloff=2
 set listchars=extends:>,precedes:<,eol:$,trail:.,tab:>-
+set ttimeoutlen=0 timeoutlen=2000
 " Allow hidden buffers
 set hidden
 
-"let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:syntastic_python_checkers=['pyflakes', 'pep8'] 
 
@@ -138,6 +140,7 @@ autocmd FileType python nmap <buffer> <silent> <leader>/ I#<ESC>j
 autocmd FileType python xnoremap <buffer> <silent> <leader>pdb i__import__('pdb').set_trace()<ESC>==j
 autocmd Filetype python nmap <buffer> <F5> :!python %<CR>
 autocmd Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4
+autocmd Filetype markdown setlocal tabstop=4 softtabstop=4 shiftwidth=4
 autocmd BufNewFile,BufRead *.*annotatedstring setlocal noautoindent noexpandtab
 autocmd BufWritePost .vimrc source $MYVIMRC
 autocmd FileType json set foldmethod=syntax 
