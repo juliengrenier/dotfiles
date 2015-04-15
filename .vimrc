@@ -22,9 +22,11 @@ Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-markdown'
 Bundle 'mhinz/vim-signify'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-abolish.git'
 Bundle 'sjl/gundo.vim'
 Bundle 'elzr/vim-json'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'scrooloose/nerdtree.git'
 
 if iCanHazVundle == 0
   echo "Installing Bundles, please ignore key map error messages "
@@ -62,7 +64,7 @@ set ignorecase
 set smartcase
 set infercase
 
-colorscheme torte
+colorscheme koehler 
 set showcmd
 set nojoinspaces
 set ruler
@@ -144,3 +146,22 @@ autocmd Filetype markdown setlocal tabstop=4 softtabstop=4 shiftwidth=4
 autocmd BufNewFile,BufRead *.*annotatedstring setlocal noautoindent noexpandtab
 autocmd BufWritePost .vimrc source $MYVIMRC
 autocmd FileType json set foldmethod=syntax 
+
+" file is large from 50mb
+let g:LargeFile = 1024 * 1024 * 50
+augroup LargeFile
+  autocmd BufReadPre * let f=getfsize(expand("<afile>")) | if f > g:LargeFile || f == -2 | call LargeFile() | endif
+augroup END
+
+function LargeFile()
+  " no syntax highlighting etc
+  set eventignore+=FileType
+  " save memory when other file is viewed
+  setlocal bufhidden=unload
+  " is read-only (write with :w new_filename)
+  setlocal buftype=nowrite
+  " no undo possible
+  setlocal undolevels=-1
+  " display message
+  autocmd VimEnter *  echo "The file is larger than " . (g:LargeFile / 1024 / 1024) . " MB, so some options are changed (see .vimrc for details)."
+endfunction
