@@ -27,7 +27,9 @@ Bundle 'sjl/gundo.vim'
 Bundle 'elzr/vim-json'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'scrooloose/nerdtree.git'
-
+Bundle 'scrooloose/nerdtree'
+Bundle 'yakiang/excel.vim'
+Bundle 'davidhalter/jedi-vim'
 if iCanHazVundle == 0
   echo "Installing Bundles, please ignore key map error messages "
   echo ""
@@ -99,6 +101,7 @@ nmap <silent> <leader>s :set spell!<CR>
 nmap <silent> <leader>< :bp<CR>
 nmap <silent> <leader>> :bn<CR>
 nmap <silent> <leader>tt :TagbarToggle<CR>
+nmap <silent> <leader>nt :NERDTreeToggle<CR>
 nmap <silent> <leader>h :set number!<CR>
 nmap <silent> <leader>oe yiW :e <C-r>0<CR>
 nmap <silent> <leader>os yiW :sp <C-r>0<CR>
