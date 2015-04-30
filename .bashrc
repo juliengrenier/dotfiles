@@ -7,7 +7,11 @@ shopt -s histverify; #verify substitution before executing
 
 
 alias rm='rm -i'
-alias ll='ls -larth --color=auto'
+alias ls='ls -G'
+alias ll='ls -larthG --color=auto'
+alias less='less -FXR'
+alias findpy='find . -type f -name "*py" -print0 | xargs -0  grep -n'
+alias findhtml='find . -type f -name "*html" -print0 | xargs -0 grep -n'
 
 if [ -f $HOME/.bashrc_custom ]; then
   . $HOME/.bashrc_custom
