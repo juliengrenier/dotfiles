@@ -11,6 +11,7 @@ endif
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 "let g:vundle_default_git_proto = 'git'
+Bundle 'nanotech/jellybeans.vim'
 Bundle 'gmarik/vundle'
 Bundle 'vim-scripts/Syntastic'
 Bundle 'tpope/vim-fugitive'
@@ -47,6 +48,23 @@ set ttimeoutlen=0 timeoutlen=2000
 set hidden
 
 let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+"unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
 let g:airline#extensions#tabline#enabled = 1
 let g:syntastic_python_checkers=['pyflakes', 'pep8'] 
 
@@ -66,7 +84,7 @@ set ignorecase
 set smartcase
 set infercase
 
-colorscheme koehler 
+colorscheme jellybeans
 set showcmd
 set nojoinspaces
 set ruler
@@ -110,6 +128,7 @@ nmap <silent> <leader>ov yiW :vsp <C-r>0<CR>
 nmap <silent> <leader>w :set diffopt+=iwhite<CR>
 nmap <silent> <leader>W :set diffopt-=iwhite<CR>
 nmap <silent> <leader>K <ESC>i<CR><ESC>
+nmap <silent> <leader>N <ESC>f,a<CR><ESC>
 nmap <silent> gv `[V`]
 nnoremap <Space> za
 vnoremap <Space> za
