@@ -10,6 +10,7 @@ package notify
 package peco
 package spark
 package tmux-zen
+package virtualfish
 package weather
 theme aight
 theme batman
