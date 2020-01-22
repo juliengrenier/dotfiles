@@ -1,4 +1,4 @@
 curl -L https://get.oh-my.fish | fish
-ln -s ~/dotfiles/bundle.omf  $HOME/.comfig/omf/bundle
-ln -s ~/dotfiles/theme.omf  $HOME/.comfig/omf/theme
-ln -s ~/dotfiles/config.fish $HOME/.config/fish/config.fish
+ln -s -F ~/dotfiles/bundle.omf  $HOME/.config/omf/bundle
+ln -s -F ~/dotfiles/theme.omf  $HOME/.config/omf/theme
+ln -s -F ~/dotfiles/config.fish $HOME/.config/fish/config.fish
