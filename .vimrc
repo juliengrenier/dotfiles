@@ -1,41 +1,46 @@
 " Setting up Vundle - the vim plugin bundler
-let iCanHazVundle=1
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-if !filereadable(vundle_readme)
-  echo "Installing Vundle.."
-  echo ""
-  silent !mkdir -p ~/.vim/bundle
-  silent !git clone git@github.com:gmarik/vundle.git ~/.vim/bundle/vundle
-  let iCanHazVundle=0
-endif
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+"let iCanHazVundle=1
+"let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+"if !filereadable(vundle_readme)
+"  echo "Installing Vundle.."
+"  echo ""
+"  silent !mkdir -p ~/.vim/bundle
+"  silent !git clone git@github.com:gmarik/vundle.git ~/.vim/bundle/vundle
+"  let iCanHazVundle=0
+"endif
+set nocompatible
+filetype off
+"set rtp+=~/.vim/bundle/vundle/
+call plug#begin('~/.vim/plugged')
 "let g:vundle_default_git_proto = 'git'
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'gmarik/vundle'
-Bundle 'vim-scripts/Syntastic'
-Bundle 'tpope/vim-fugitive'
-Bundle 'rizzatti/funcoo.vim'
-Bundle 'rizzatti/dash.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'vim-scripts/vcscommand.vim'
-Bundle 'bling/vim-airline'
-Bundle 'tpope/vim-markdown'
-Bundle 'mhinz/vim-signify'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-abolish.git'
-Bundle 'sjl/gundo.vim'
-Bundle 'elzr/vim-json'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'scrooloose/nerdtree.git'
-Bundle 'scrooloose/nerdtree'
-Bundle 'yakiang/excel.vim'
-Bundle 'davidhalter/jedi-vim'
-if iCanHazVundle == 0
-  echo "Installing Bundles, please ignore key map error messages "
-  echo ""
-  :BundleInstall
-endif
+Plug 'nanotech/jellybeans.vim'
+"Plug 'gmarik/vundle'
+Plug 'vim-scripts/Syntastic'
+Plug 'tpope/vim-fugitive'
+Plug 'rizzatti/funcoo.vim'
+Plug 'rizzatti/dash.vim'
+Plug 'majutsushi/tagbar'
+Plug 'vim-scripts/vcscommand.vim'
+Plug 'bling/vim-airline'
+Plug 'tpope/vim-markdown'
+Plug 'mhinz/vim-signify'
+Plug 'tpope/vim-surround'
+"Plug 'tpope/vim-abolish.git'
+Plug 'sjl/gundo.vim'
+Plug 'elzr/vim-json'
+Plug 'tpope/vim-unimpaired'
+Plug 'scrooloose/nerdtree.git'
+Plug 'scrooloose/nerdtree'
+"Plug 'yakiang/excel.vim'
+Plug 'davidhalter/jedi-vim'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'wellle/tmux-complete.vim'
+Plug 'christoomey/vim-tmux-navigator'
+
+call plug#end()
 
 " Essential
 set nocompatible
@@ -186,4 +191,10 @@ function LargeFile()
   setlocal undolevels=-1
   " display message
   autocmd VimEnter *  echo "The file is larger than " . (g:LargeFile / 1024 / 1024) . " MB, so some options are changed (see .vimrc for details)."
+endfunction
+
+let g:tmux_navigator_save_on_switch = 2
+
+function FormatJson()
+  %!python -m json.tool
 endfunction
