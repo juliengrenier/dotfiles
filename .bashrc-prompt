@@ -59,6 +59,18 @@ COLOR_LIGHTCYAN='\033[1;36m'
 COLOR_DEFAULT='\033[0m'
 
 # Function to set prompt_command to.
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (⎇ \1)/'
+}
+
+function set_virtualenv () {
+  if test -z "$VIRTUAL_ENV" ; then
+      PYTHON_VIRTUALENV=""
+  else
+    PYTHON_VIRTUALENV="${COLOR_BLUE}[`basename \"$(dirname $VIRTUAL_ENV)\"`]${COLOR_DEFAULT} "
+  fi
+}
+
 function promptcmd () {
     #history -a 
     local SSH_FLAG=0
@@ -145,7 +157,7 @@ function promptcmd () {
     fi
 
     # Detached Screen Sessions
-    local DTCHSCRN=$(screen -ls | grep -c Detach )
+    local DTCHSCRN=$(tmux list-sessions | grep -v -c attached )
     if [ ${DTCHSCRN} -gt 2 ]; then
         PS1="${PS1}\[${COLOR_RED}\][scr:${DTCHSCRN}] "
     elif [ ${DTCHSCRN} -gt 0 ]; then
@@ -194,6 +206,14 @@ function promptcmd () {
     else                                 
         PS1="${PS1}\[${COLOR_RED}\]$(prompt_workingdir)"
     fi
+
+    #git branch
+    PS1="${PS1}$(parse_git_branch)"
+
+    #virtualenv
+    set_virtualenv
+    PS1="${PYTHON_VIRTUALENV}${PS1}"
+
     
     # Closing bracket } and $\#
     if [ ${UID} -eq 0 ]; then              
