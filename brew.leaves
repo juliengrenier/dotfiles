@@ -1,0 +1,100 @@
+#!fish
+brew install apache-spark
+brew install autojump
+brew install automake
+brew install awscli
+brew install bash
+brew install bash-completion
+brew install broot
+brew install clang-format
+brew install cmake
+brew install cowsay
+brew install ctags
+brew install cython
+brew install dive
+brew install docker
+brew install docker-machine
+brew install flatcc
+brew install fpp
+brew install fzf
+brew install gawk
+brew install geoip
+brew install git
+brew install gnu-chess
+brew install gnu-sed
+brew install gnuplot
+brew install go
+brew install grip
+brew install gsl
+brew install hadoop
+brew install htop
+brew install hyperfine
+brew install jq
+brew install kerl
+brew install libidn
+brew install libtool
+brew install neovim
+brew install peco
+brew install protobuf
+brew install reattach-to-user-namespace
+brew install ripgrep
+brew install rust
+brew install scala
+brew install snappy
+brew install spark
+brew install swig
+brew install tcpdump
+brew install tinycdb
+brew install tmux
+brew install tokei
+brew install wget
+apache-spark
+autojump
+automake
+awscli
+bash
+bash-completion
+broot
+clang-format
+cmake
+cowsay
+ctags
+cython
+dive
+docker
+docker-machine
+fish
+flatcc
+fpp
+fzf
+gawk
+geoip
+git
+gnu-chess
+gnu-sed
+gnuplot
+go
+grip
+gsl
+hadoop
+htop
+hyperfine
+jq
+kerl
+libidn
+libtool
+neovim
+peco
+protobuf
+reattach-to-user-namespace
+ripgrep
+rust
+scala
+snappy
+spark
+swig
+tcpdump
+tinycdb
+tmux
+tokei
+wget
