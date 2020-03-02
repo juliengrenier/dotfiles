@@ -8,6 +8,7 @@ let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
 let g:vim_bootstrap_langs = "c,elixir,erlang,go,python"
 let g:vim_bootstrap_editor = "nvim"				" nvim or vim
 
+
 if !filereadable(vimplug_exists)
   if !executable("curl")
     echoerr "You have to install curl or first install vim-plug yourself!"
@@ -203,6 +204,15 @@ if exists('$SHELL')
 else
     set shell=/bin/sh
 endif
+
+" relative number
+set relativenumber
+
+" Cool neovim substitution
+set inccommand=split
+
+"Matching angle-bracket
+set matchpairs+=<:>
 
 " session management
 let g:session_directory = "~/.config/nvim/session"
